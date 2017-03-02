@@ -1,0 +1,40 @@
+{
+  "name": "proj4m",
+  "version": "0.1.0",
+  "description": "Handle transformation between mars projections.",
+  "main": "dist/proj4m.js",
+  "module": "dist/proj4m.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "pretest": "npm run build",
+    "test": "mocha test/*.js --compilers js:buble/register",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsw0108/proj4m.js.git"
+  },
+  "keywords": [
+    "proj4",
+    "proj4js",
+    "gis",
+    "gcj02",
+    "bd09"
+  ],
+  "author": "wsw0108",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wsw0108/proj4m.js/issues"
+  },
+  "homepage": "https://github.com/wsw0108/proj4m.js#readme",
+  "dependencies": {
+    "proj4": "^2.4.0"
+  },
+  "devDependencies": {
+    "buble": "^0.15.2",
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-buble": "^0.15.0",
+    "standard": "^9.0.0"
+  }
+}
