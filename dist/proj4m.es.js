@@ -120,7 +120,7 @@ function inverse (p) {
   var x = p.x;
   var y = p.y;
   var lng = x * rad2Deg / r;
-  var lat = (2 * Math.atan(Math.exp(y / r)) - Math.PI / 2) * rad2Deg;
+  var lat = ((2 * Math.atan(Math.exp(y / r))) - (Math.PI / 2)) * rad2Deg;
   p.x = lng;
   p.y = lat;
   return p
@@ -176,7 +176,7 @@ function convertMC2LL (p) {
 
 function convertor (p, table) {
   var d = Math.abs(p.y) / table[9];
-  var x = table[0] + table[1] * Math.abs(p.x);
+  var x = table[0] + (table[1] * Math.abs(p.x));
   var y = table[2];
   for (var i = 3; i <= 8; i++) {
     y += table[i] * Math.pow(d, i - 2);
@@ -313,18 +313,18 @@ function toWGS84 (p) {
 }
 
 function transformLon (x, y) {
-  var ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
-  ret += (20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0 / 3.0;
-  ret += (20.0 * Math.sin(x * Math.PI) + 40.0 * Math.sin(x / 3.0 * Math.PI)) * 2.0 / 3.0;
-  ret += (150.0 * Math.sin(x / 12.0 * Math.PI) + 300.0 * Math.sin(x / 30.0 * Math.PI)) * 2.0 / 3.0;
+  var ret = 300.0 + x + (2.0 * y) + (0.1 * x * x) + (0.1 * x * y) + (0.1 * Math.sqrt(Math.abs(x)));
+  ret += ((20.0 * Math.sin(6.0 * x * Math.PI)) + (20.0 * Math.sin(2.0 * x * Math.PI))) * 2.0 / 3.0;
+  ret += ((20.0 * Math.sin(x * Math.PI)) + (40.0 * Math.sin(x / 3.0 * Math.PI))) * 2.0 / 3.0;
+  ret += ((150.0 * Math.sin(x / 12.0 * Math.PI)) + (300.0 * Math.sin(x / 30.0 * Math.PI))) * 2.0 / 3.0;
   return ret
 }
 
 function transformLat (x, y) {
-  var ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
-  ret += (20.0 * Math.sin(6.0 * x * Math.PI) + 20.0 * Math.sin(2.0 * x * Math.PI)) * 2.0 / 3.0;
-  ret += (20.0 * Math.sin(y * Math.PI) + 40.0 * Math.sin(y / 3.0 * Math.PI)) * 2.0 / 3.0;
-  ret += (160.0 * Math.sin(y / 12.0 * Math.PI) + 320 * Math.sin(y * Math.PI / 30.0)) * 2.0 / 3.0;
+  var ret = -100.0 + (2.0 * x) + (3.0 * y) + (0.2 * y * y) + (0.1 * x * y) + (0.2 * Math.sqrt(Math.abs(x)));
+  ret += ((20.0 * Math.sin(6.0 * x * Math.PI)) + (20.0 * Math.sin(2.0 * x * Math.PI))) * 2.0 / 3.0;
+  ret += ((20.0 * Math.sin(y * Math.PI)) + (40.0 * Math.sin(y / 3.0 * Math.PI))) * 2.0 / 3.0;
+  ret += ((160.0 * Math.sin(y / 12.0 * Math.PI)) + (320 * Math.sin(y * Math.PI / 30.0))) * 2.0 / 3.0;
   return ret
 }
 
@@ -333,7 +333,7 @@ function delta (wgLon, wgLat) {
   var dLon = transformLon(wgLon - 105.0, wgLat - 35.0);
   var radLat = wgLat / 180.0 * Math.PI;
   var magic = Math.sin(radLat);
-  magic = 1 - offset * magic * magic;
+  magic = 1 - (offset * magic * magic);
   var sqrtMagic = Math.sqrt(magic);
   dLat = (dLat * 180.0) / ((axis * (1 - offset)) / (magic * sqrtMagic) * Math.PI);
   dLon = (dLon * 180.0) / (axis / sqrtMagic * Math.cos(radLat) * Math.PI);
@@ -373,10 +373,10 @@ function toWGS84$1 (p) {
 function fromGCJ02 (p) {
   var x = p.x;
   var y = p.y;
-  var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * xPi);
-  var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * xPi);
-  x = z * Math.cos(theta) + 0.0065;
-  y = z * Math.sin(theta) + 0.006;
+  var z = Math.sqrt((x * x) + (y * y)) + (0.00002 * Math.sin(y * xPi));
+  var theta = Math.atan2(y, x) + (0.000003 * Math.cos(x * xPi));
+  x = (z * Math.cos(theta)) + 0.0065;
+  y = (z * Math.sin(theta)) + 0.006;
   p.x = x;
   p.y = y;
   return p
@@ -387,8 +387,8 @@ function toGCJ02 (p) {
   var y = p.y;
   x -= 0.0065;
   y -= 0.006;
-  var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * xPi);
-  var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * xPi);
+  var z = Math.sqrt((x * x) + (y * y)) - (0.00002 * Math.sin(y * xPi));
+  var theta = Math.atan2(y, x) - (0.000003 * Math.cos(x * xPi));
   x = z * Math.cos(theta);
   y = z * Math.sin(theta);
   p.x = x;

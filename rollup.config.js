@@ -3,7 +3,7 @@ import buble from 'rollup-plugin-buble'
 const pkg = require('./package.json')
 
 export default {
-  entry: 'lib/index.js',
+  entry: 'src/index.js',
   plugins: [buble()],
   external: ['proj4'],
   targets: [

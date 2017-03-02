@@ -5,7 +5,8 @@
   "main": "dist/proj4m.js",
   "module": "dist/proj4m.es.js",
   "scripts": {
-    "lint": "eslint lib test",
+    "lint": "eslint src test",
+    "prebuild": "npm run lint",
     "build": "rollup -c",
     "pretest": "npm run build",
     "test": "mocha test/*.js --compilers js:buble/register",
