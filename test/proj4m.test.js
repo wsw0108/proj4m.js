@@ -1,5 +1,5 @@
 const assert = require('assert')
-const proj4m = require('../dist/proj4m')
+const proj4m = require('../')
 
 describe('proj4m', () => {
   it('EPSG:4326 -> EPSG:3857', () => {
