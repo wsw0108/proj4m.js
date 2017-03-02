@@ -5,7 +5,7 @@ Handle Mars projections and transformation between them.
 
 ## Mars Projections
 - GCJ02
-    - GCJ02, `+proj=longlat +dataum=GCJ02`
+    - GCJ02, `+proj=longlat +datum=GCJ02`
     - GCJ02MC, `+proj=merc +datum=GCJ02`
 - BD09
     - BD09LL, `+proj=longlat +datum=BD09`
