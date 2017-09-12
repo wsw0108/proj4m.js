@@ -1,6 +1,6 @@
 import gcj02 from './gcj02'
 
-const xPi = Math.Pi * 3000.0 / 180.0
+const xPi = Math.PI * 3000.0 / 180.0
 
 function fromWGS84 (p) {
   p = gcj02.fromWGS84(p)

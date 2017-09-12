@@ -42,8 +42,8 @@ describe('proj4m', () => {
       output.push(proj4.forward(coords[i]))
     }
     for (let i = 0; i < expected.length; i++) {
-      assert(Math.abs(output[i][0] - expected[i][0] <= tolerance))
-      assert(Math.abs(output[i][1] - expected[i][1] <= tolerance))
+      assert(Math.abs(output[i][0] - expected[i][0]) <= tolerance)
+      assert(Math.abs(output[i][1] - expected[i][1]) <= tolerance)
     }
   })
 })

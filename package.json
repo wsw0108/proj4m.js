@@ -1,6 +1,6 @@
 {
   "name": "proj4m",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Handle transformation between mars projections.",
   "main": "dist/proj4m.js",
   "module": "dist/proj4m.es.js",

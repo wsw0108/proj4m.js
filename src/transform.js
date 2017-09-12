@@ -30,12 +30,12 @@ export default function (srcProj, dstProj, point) {
   if (!sProj.isLatLong) {
     point = sProj.inverse(point)
   }
-  if (sProj.datumCode !== dProj.datumCode) {
-    const sDatum = datum.get(sProj.datumCode)
-    const dDatum = datum.get(dProj.datumCode)
-    if (sProj.datumCode === Const.datumCodeGCJ02 && dProj.datumCode === Const.datumCodeBD09) {
+  if (srcProj.datumCode !== dstProj.datumCode) {
+    const sDatum = datum.get(srcProj.datumCode)
+    const dDatum = datum.get(dstProj.datumCode)
+    if (srcProj.datumCode === Const.datumCodeGCJ02 && dstProj.datumCode === Const.datumCodeBD09) {
       point = dDatum.fromGCJ02(point)
-    } else if (sProj.datumCode === Const.datumCodeBD09 && dProj.datumCode === Const.datumCodeGCJ02) {
+    } else if (srcProj.datumCode === Const.datumCodeBD09 && dstProj.datumCode === Const.datumCodeGCJ02) {
       point = sDatum.toGCJ02(point)
     } else {
       point = sDatum.toWGS84(point)
