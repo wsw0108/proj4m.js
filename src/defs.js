@@ -2,6 +2,7 @@ import globals from './globals'
 import parseProj from './projString'
 
 function defs (name) {
+  name = name ? name.toUpperCase() : ''
   if (arguments.length === 2) {
     const def = arguments[1]
     if (typeof def === 'string') {

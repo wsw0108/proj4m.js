@@ -2,6 +2,11 @@ const assert = require('assert')
 const proj4m = require('../')
 
 describe('proj4m', () => {
+  it('defs does not care about case of name', () => {
+    proj4m.defs('epsg:4490', '+proj=longlat +ellps=GRS80 +no_defs')
+    assert(proj4m.defs('EPSG:4490') !== undefined)
+  })
+
   it('EPSG:4326 -> EPSG:3857', () => {
     const tolerance = 1e-3
     const input = [120.0, 30.0]
